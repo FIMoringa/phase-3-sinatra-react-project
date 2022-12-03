@@ -6,4 +6,36 @@ class ApplicationController < Sinatra::Base
     { message: "Good luck with your project!" }.to_json
   end
 
+  get '/posts' do
+    { message: "Get all posts" }.to_json
+  end
+
+  get '/posts/:id' do
+    { message: "get a post by id" }.to_json
+  end
+
+  post '/posts' do
+    { message: "create a post" }.to_json
+  end
+
+  delete '/posts/:id' do
+    { message: "delete a post by id" }.to_json
+  end
+
+  # Authors
+  get '/authors' do
+    { message: "Get all authors" }.to_json
+  end
+
+  get '/authors/:id' do
+    { message: "get a author by id" }.to_json
+  end
+
+  post '/authors' do
+    { message: "create a author" }.to_json
+  end
+
+  delete '/authors/:id' do
+    { message: "delete a author by id" }.to_json
+  end
 end
