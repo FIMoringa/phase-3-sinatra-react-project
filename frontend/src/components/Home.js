@@ -12,21 +12,30 @@ function Home() {
 		const fetchPosts = async () => {
 			const response = await fetch('http://localhost:9292/posts');
 			const data = await response.json();
-      console.log(data)
+			data.forEach(async (post) => {
+				const name = await fetch(
+					`http://localhost:9292/authors/${post.author_id}`
+				);
+				const authorObj = await name.json();
+				post.author = authorObj.first_name;
+			});
 			setPosts(data);
 		};
 		fetchPosts();
 	}, []);
 
 	const deleteHandler = (id) => {
-		console.log(id);
 		fetch(`http://localhost:9292/posts/${id}`, {
 			method: 'DELETE',
+		}).then(() => {
+			setPosts(posts.filter((post) => post.id !== id));
 		});
 	};
 
 	return (
-		<div className="d-flex flex-wrap">
+		<div>
+      <h1 className='text-center mt-3'>Welcome To Moringa Blog</h1>
+      <div className="d-flex flex-wrap">
 			{posts.map((post) => (
 				<Card
 					key={post.id}
@@ -38,10 +47,10 @@ function Home() {
 						<Card.Text>{post.content}</Card.Text>
 					</Card.Body>
 					<ListGroup className="list-group-flush">
-						<ListGroup.Item>Author: {post.author}</ListGroup.Item>
+						<ListGroup.Item>Author:{post.author} </ListGroup.Item>
 					</ListGroup>
 					<Card.Body>
-						<Card.Link href="#" onClick={() => deleteHandler(post.id)}>
+						<Card.Link href="#" onClick={(e) => deleteHandler(post.id)}>
 							Delete Post
 						</Card.Link>
 						<Card.Link onClick={() => navigate('/create-post')} href="#">
@@ -51,6 +60,7 @@ function Home() {
 				</Card>
 			))}
 		</div>
+    </div>
 	);
 }
 

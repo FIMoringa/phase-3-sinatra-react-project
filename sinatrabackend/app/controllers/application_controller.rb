@@ -22,6 +22,7 @@ class ApplicationController < Sinatra::Base
     post = Post.create(
       title: params[:title],
       content: params[:content],
+      author_id: params[:author_id],
   )
     { message: "post successfully created", post:post }.to_json
   end
