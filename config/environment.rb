@@ -8,3 +8,7 @@ Bundler.require(:default, ENV['RACK_ENV'])
 
 # Require in all files in 'app' directory
 require_all 'app'
+
+
+# rake db:create_migration NAME=create_authors_table
+# rake db:create_migration NAME=create_posts_table
