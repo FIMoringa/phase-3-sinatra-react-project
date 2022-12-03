@@ -12,6 +12,7 @@ function Home() {
 		const fetchPosts = async () => {
 			const response = await fetch('http://localhost:9292/posts');
 			const data = await response.json();
+      console.log(data)
 			setPosts(data);
 		};
 		fetchPosts();
