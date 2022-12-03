@@ -7,7 +7,8 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/posts' do
-    { message: "Get all posts" }.to_json
+    posts = Post.all
+    posts.to_json
   end
 
   get '/posts/:id' do
