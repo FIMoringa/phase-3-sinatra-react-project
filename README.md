@@ -1,6 +1,12 @@
 # Moringa Blog
 This is a fullstack blog application created with ruby/Sinatra in the backend and react in the front end. An author has many posts and a post belongs to ane author. It was created for learning purposes
 
+<img width="1476" alt="Screenshot 2022-12-03 at 20 27 09" src="https://user-images.githubusercontent.com/50773868/205453735-06a53e04-9106-46e7-81fd-820e33845c78.png">
+
+
+<img width="1328" alt="Screenshot 2022-12-03 at 20 06 32" src="https://user-images.githubusercontent.com/50773868/205453573-8a9a5d67-b40d-47b1-81a6-452d0270d055.png">
+
+
 ## Learning Goals
 
 - Build a web basic API with Sinatra and Active Record to support a React
@@ -8,6 +14,7 @@ This is a fullstack blog application created with ruby/Sinatra in the backend an
 
 
 ## Project  Requirements
+
 
 - Use Active Record to interact with a database.
 - At a minimum, set up the following API routes in Sinatra:
@@ -33,9 +40,9 @@ This is a fullstack blog application created with ruby/Sinatra in the backend an
 
 ### Backend Setup
 
-`git clone git@github.com:FIMoringa/phase-3-sinatra-react-project.git`
-`cd phase-3-sinatra-react-project/backend`
-`bundle install` to install the gems.
+- `git clone git@github.com:FIMoringa/phase-3-sinatra-react-project.git`
+- `cd phase-3-sinatra-react-project/backend`
+- `bundle install` to install the gems.
 
 You can start your server with:
 
