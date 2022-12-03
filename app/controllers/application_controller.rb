@@ -3,7 +3,7 @@ class ApplicationController < Sinatra::Base
   
   # Add your routes here
   get "/" do
-    { message: "Good luck with your project!" }.to_json
+    { message: "Welcome to my application" }.to_json
   end
 
   get '/posts' do
@@ -16,28 +16,49 @@ class ApplicationController < Sinatra::Base
     post.to_json
   end
 
+  
+
   post '/posts' do
-    { message: "create a post" }.to_json
+    post = Post.create(
+      title: params[:title],
+      content: params[:content],
+  )
+    { message: "post successfully created", post:post }.to_json
   end
 
+
+
   delete '/posts/:id' do
-    { message: "delete a post by id" }.to_json
+    post = Post.find(params[:id])
+    post.destroy
+
+    { message: "post deleted successfully" }.to_json
   end
 
   # Authors
   get '/authors' do
-    { message: "Get all authors" }.to_json
+    authors = Author.all
+    authors.to_json
   end
 
   get '/authors/:id' do
-    { message: "get a author by id" }.to_json
+    author = Author.find(params[:id])
+    author.to_json
   end
 
   post '/authors' do
-    { message: "create a author" }.to_json
+    author = Author.create(
+      first_name: params[:first_name],
+      last_name: params[:last_name],
+      email: params[:email],
+  )
+    { message: "author successfully created", author:author }.to_json
   end
 
   delete '/authors/:id' do
-    { message: "delete a author by id" }.to_json
+    author = Author.find(params[:id])
+    author.destroy
+
+    { message: "author deleted successfully" }.to_json
   end
 end
