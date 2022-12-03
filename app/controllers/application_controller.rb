@@ -12,7 +12,8 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/posts/:id' do
-    { message: "get a post by id" }.to_json
+    post = Post.find(params[:id])
+    post.to_json
   end
 
   post '/posts' do
